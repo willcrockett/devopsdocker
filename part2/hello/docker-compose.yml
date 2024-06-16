@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  backend:
+    ports:
+      - 8080:8080
+    build: ./hello-backend
+    environment:
+      - REQUEST_ORIGIN=http://localhost:5000
+  frontend:
+    ports:
+      - 5000:5000
+    build: ./hello-frontend
+    environment:
+      - REACT_APP_BACKEND_URL=http://localhost:8080
