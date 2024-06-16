@@ -7,9 +7,13 @@ services:
     build: ./hello-backend
     environment:
       - REQUEST_ORIGIN=http://localhost:5000
+      - REDIS_HOST=redis
   frontend:
     ports:
       - 5000:5000
     build: ./hello-frontend
     environment:
       - REACT_APP_BACKEND_URL=http://localhost:8080
+  redis:
+    image: redis
+  
